@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleImage from './SingleImage';
+import ModalModalExample from './SingleImage';
 
 
 
@@ -51,7 +51,7 @@ export default class Images extends Component {
 
     render() { 
         const imgItems = this.state.imageData.map((image, i) => {        
-            return(<SingleImage key={i.toString()} userName={image.userName} src={image.imageURL} description={image.imageDescription}/>)
+            return(<ModalModalExample key={i.toString()} userName={image.userName} src={image.imageURL} itemName={image.itemName} description={image.imageDescription}/>)
         });
         return(
             <React.Fragment>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'semantic-ui-react'
 
 
 
@@ -45,7 +46,7 @@ class UploadImage extends Component {
                                 <input type="file" ref="file" accept="image/*" name="myFile" id="file"></input>
                             </div>
                                 <input id="description" type="text" placeholder="Give fellow Barterers some info on your item..." name="description"></input>
-                        <button type="submit" className='btn'>Start Bartering with this item</button>
+                        <Button secondary type="submit" className='btn'>Start Bartering with this item</Button>
                     </form>
                 </div>
             </React.Fragment>

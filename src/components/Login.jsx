@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addUser } from '../actions/actions.js';
 import Register from './Register.jsx';
+import { Button, Form } from 'semantic-ui-react'
 
 const initialState = {
-    username: "ashton",
-    password: "ashton"
+    username: "",
+    password: ""
 }
 
 
@@ -66,18 +67,36 @@ class Login extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <div id="loginForm">
-                    <legend>Sign In:</legend>
-                    Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
-                    Password:<input className="log" type="current-password" value={this.state.password} onChange={this.inputChange("password")} required></input>
-                    <input type="hidden" name="redirect"></input>
-                    <button className="FORMbtn" type="submit" onClick={this.fetchLogin}>Sign In</button>
-                </div>
-                <br />
-                <br />
-                <Register />
-            </React.Fragment>
+            <Form>
+    <Form.Field>
+      <label>First Name</label>
+      <input placeholder='First Name' />
+    </Form.Field>
+    <Form.Field>
+      <label>Last Name</label>
+      <input placeholder='Last Name' />
+    </Form.Field>
+    <Form.Field>
+    </Form.Field>
+    <Button type='submit'>Submit</Button>
+  </Form>
+
+
+
+
+
+            // <React.Fragment>
+            //     <div id="loginForm">
+            //         <legend>Sign In:</legend>
+            //         Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
+            //         Password:<input className="log" type="current-password" value={this.state.password} onChange={this.inputChange("password")} required></input>
+            //         <input type="hidden" name="redirect"></input>
+            //         <button className="FORMbtn" type="submit" onClick={this.fetchLogin}>Sign In</button>
+            //     </div>
+            //     <br />
+            //     <br />
+            //     <Register />
+            // </React.Fragment>
         )
     }
 }
