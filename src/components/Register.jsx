@@ -18,6 +18,7 @@ export default class Register extends Component {
     e.preventDefault();
     const registerOptions = {
       method: "POST",
+      mode: "cors",
       headers: {
         'content-type': 'application/json'
       },
