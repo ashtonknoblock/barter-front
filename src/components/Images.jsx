@@ -11,7 +11,8 @@ export default class Images extends Component {
 
     fetchImages = () => {
         console.log('running');
-        fetch("https://barter-mac.herokuapp.com//images")
+
+        fetch("https://barter-mac.herokuapp.com/images")
             .then(res => res.json())
             .then(images => {
                 let willBeState = [];
