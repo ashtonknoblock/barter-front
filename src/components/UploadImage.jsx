@@ -24,7 +24,7 @@ class UploadImage extends Component {
         }
 
 
-        fetch("https://barter-mac.herokuapp.com/upload", postRequestOptions)
+        fetch("http://localhost:5000/upload", postRequestOptions)
             .then(data => {
                console.log(data);
             })
@@ -32,15 +32,17 @@ class UploadImage extends Component {
     }
 
 
-
-
-
     render() {
         return(     //map through images array and display them each in there own div.
             <React.Fragment>
                 <div>
                     <h1>Post an image of the item you want to start trading with</h1>
-                    <form method="POST" encType="multipart/form-data" onSubmit={this.imageSubmit}>
+                    <form method="POST" encType="multipart/form-data" onSubmit={this.imageSubmit} onChange={this.validateForm}>
+                    <div>
+                                <span>Name of the Item:</span>
+                                <input type="text" name="itemName" id="itemName"></input>
+                            </div>
+
                             <div>
                                 <span>Select an image to upload:</span>
                                 <input type="file" ref="file" accept="image/*" name="myFile" id="file"></input>
