@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 
 
 class UploadImage extends Component {
-//TODO: fetch 'POST' to collins backend, so when an image is up.oaded it goes to the database
 
     imageSubmit = (event) => {
         event.preventDefault();
@@ -28,6 +27,7 @@ class UploadImage extends Component {
             .then(data => {
                console.log(data);
             })
+        this.refs.file.value = '';
     }
 
 
@@ -41,9 +41,10 @@ class UploadImage extends Component {
                                 <span>Name of the Item:</span>
                                 <input type="text" name="itemName" id="itemName"></input>
                             </div>
+
                             <div>
                                 <span>Select an image to upload:</span>
-                                <input type="file" accept="image/*" name="myFile" id="file"></input>
+                                <input type="file" ref="file" accept="image/*" name="myFile" id="file"></input>
                             </div>
                                 <input id="description" type="text" placeholder="Give fellow Barterers some info on your item..." name="description"></input>
                         <button type="submit" className='btn'>Start Bartering with this item</button>

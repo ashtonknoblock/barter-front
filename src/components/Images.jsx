@@ -10,8 +10,7 @@ export default class Images extends Component {
     }
 
     fetchImages = () => {
-        console.log('running');
-
+        console.log('polling...');
         fetch("https://barter-mac.herokuapp.com/images")
             .then(res => res.json())
             .then(images => {
@@ -40,11 +39,8 @@ export default class Images extends Component {
                 }
                 this.setState({
                     imageData: willBeState
-                }, () => {
-                    console.log('done')
                 })
             })
-            // setTimeout(0);
     }
     componentDidMount = () => {
         this.fetchImages();
@@ -52,8 +48,6 @@ export default class Images extends Component {
         poll;
     }
      
-    // poll = setInterval(this.fetchImages, 5000);
-    // poll;
 
     render() { 
         const imgItems = this.state.imageData.map((image, i) => {        
