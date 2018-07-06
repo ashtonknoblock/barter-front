@@ -35,7 +35,7 @@ class Login extends Component {
             }),
         }
 
-        fetch("http://localhost:5000/login", postRequestOptions)
+        fetch("https://barter-mac.herokuapp.com/login", postRequestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -70,7 +70,7 @@ class Login extends Component {
                     <legend>Sign In:</legend>
                     Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
                     Password:<input className="log" type="current-password" value={this.state.password} onChange={this.inputChange("password")} required></input>
-                    <input type="hidden" name="redirect" value="www.google.com"></input>
+                    <input type="hidden" name="redirect"></input>
                     <button className="FORMbtn" type="submit" onClick={this.fetchLogin}>Sign In</button>
                 </div>
                 <br />

@@ -27,7 +27,7 @@ export default class Register extends Component {
         password: this.state.regPassword,
       })
     }
-    fetch("http://localhost:5000/register", registerOptions)
+    fetch("https://barter-mac.herokuapp.com/register", registerOptions)
       .then(response => response.json())
       .then(data => { 
       if (this.state.regUsername === "" && this.state.regPassword === ""){
