@@ -18,6 +18,7 @@ export default class Register extends Component {
     e.preventDefault();
     const registerOptions = {
       method: "POST",
+      mode: "cors",
       headers: {
         'content-type': 'application/json'
       },
@@ -27,6 +28,7 @@ export default class Register extends Component {
         password: this.state.regPassword,
       })
     }
+
     fetch("https://barter-mac.herokuapp.com/register", registerOptions)
       .then(response => response.json())
       .then(data => { 
