@@ -23,7 +23,7 @@ class UploadImage extends Component {
             body: formData,
         }
 
-        fetch("http://localhost:5000/upload", postRequestOptions)
+        fetch("https://barter-mac.herokuapp.com//upload", postRequestOptions)
             .then(data => {
                console.log(data);
             })

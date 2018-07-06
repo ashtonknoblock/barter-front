@@ -35,7 +35,7 @@ class Login extends Component {
             }),
         }
 
-        fetch("http://localhost:5000/login", postRequestOptions)
+        fetch("https://barter-mac.herokuapp.com//login", postRequestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
