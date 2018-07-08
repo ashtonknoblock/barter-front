@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addUser } from '../actions/actions.js';
 import Register from './Register.jsx';
+import { Button, Form } from 'semantic-ui-react'
+import { format } from 'path';
 
 const initialState = {
-    username: "ashton",
-    password: "ashton"
+    username: "",
+    password: "",
+    loading: false,
 }
 
 
@@ -66,18 +69,46 @@ class Login extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <div id="loginForm">
-                    <legend>Sign In:</legend>
-                    Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
-                    Password:<input className="log" type="current-password" value={this.state.password} onChange={this.inputChange("password")} required></input>
-                    <input type="hidden" name="redirect"></input>
-                    <button className="FORMbtn" type="submit" onClick={this.fetchLogin}>Sign In</button>
-                </div>
-                <br />
-                <br />
+<React.Fragment>
+    <div id = "login-form-div">
+            <Form >
+                <Form.Field>
+                <label>Username:</label>
+                <input value={this.state.username} onChange={this.inputChange("username")} required placeholder='First Name' />
+                </Form.Field>
+                <Form.Field>
+                <label>Password</label>
+                <input type="password" value={this.state.password} onChange={this.inputChange("password")} required placeholder='Last Name' />
+                </Form.Field>
+                <Form.Field>
+                </Form.Field>
+                <Button onClick={this.fetchLogin} type='submit'>Sign In</Button>
+            </Form> 
+    </div>   
+            <div id = "register-form-div">
                 <Register />
-            </React.Fragment>
+            </div>
+</React.Fragment>
+
+    
+    
+
+
+
+
+
+            /* // <React.Fragment>
+            //     <div id="loginForm">
+            //         <legend>Sign In:</legend>
+            //         Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
+            //         Password:<input className="log" type="current-password" value={this.state.password} onChange={this.inputChange("password")} required></input>
+            //         <input type="hidden" name="redirect"></input>
+            //         <button className="FORMbtn" type="submit" onClick={this.fetchLogin}>Sign In</button>
+            //     </div>
+            //     <br />
+            //     <br />
+            //     <Register />
+            // </React.Fragment> */
         )
     }
 }

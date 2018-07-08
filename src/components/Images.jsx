@@ -60,9 +60,9 @@ export default class Images extends Component {
         });
         return (
             <React.Fragment>
-                <div>
+                
                     {imgItems}
-                </div>
+                
             </React.Fragment>
         )
     }

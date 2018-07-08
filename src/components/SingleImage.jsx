@@ -1,15 +1,65 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { Button, Header, Image, Modal, Form, FormField } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const SingleImage = (props) =>  { 
-    console.log(props.itemID);
-    return(
-        <div data-item-id={props.itemID}>
-            <img src={props.src} alt={props.src}></img>
-            <p>posted by {props.userName}</p>
+
+
+const SingleImage = (props) => {
+
+ const postComment = (event) => {
+    event.preventDefault();
+    console.log("taget", event.target);
+
+    const formData = new FormData(event.target);
+    const currentUser = props.username;
+    formData.append('user',currentUser)
+
+    const postReqOptions = {
+      method: "POST",
+      mode: 'cors',
+      body: formData,
+    }
+
+    fetch("http://172.31.89.174:5000/comment", postReqOptions)
+    .then(data => console.log(data))
+  }
+
+
+  return (
+    <div className="modal">
+      <img src={props.src} alt={props.src}></img>
+      <p>{props.itemName}</p>
+      <Modal trigger={<Button primary>View this post</Button>}>
+        <Modal.Header>{props.itemName}</Modal.Header>
+        <Modal.Content image>
+          <Image wrapped size='medium' src={props.src} />
+          <Modal.Description>
+            <Header>Posted by {props.userName}</Header>
             <p>{props.description}</p>
-        </div>
-    )
+          </Modal.Description>
+          <Form onSubmit={postComment}>
+            <div data-item-id={props.itemID}>
+              Comment on this item:
+                  <FormField width='fifteen' control="input" placeholder="comment if you are interested in this item"></FormField>
+              <Button type="submit">Submit Comment</Button>
+            </div>
+          </Form>
+        </Modal.Content>
+      </Modal>
+    </div>
+  )
+}
+
+const mapStateToProps = (state) => {
+    return {
+      username: state.userName
+    }
 }
 
 
-export default SingleImage 
+
+
+export default withRouter(connect(mapStateToProps)(SingleImage))
+
+
