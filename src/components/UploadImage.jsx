@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 
@@ -37,7 +37,23 @@ class UploadImage extends Component {
             <React.Fragment>
                 <div>
                     <h1>Post an image of the item you want to start trading with</h1>
-                    <form method="POST" encType="multipart/form-data" onSubmit={this.imageSubmit} onChange={this.validateForm}>
+                        <Form>
+                            <Form.Field>
+                                <input type="file" ref="file" accept="image/*" name="myFile" id="file"></input>
+                                <label>Image Title</label>
+                                <input type="text" name="itemName" id="itemName"></input>
+                                <input id="description" type="text" placeholder="Give fellow Barterers some info on your item..." name="description"></input>
+                            </Form.Field>
+
+                        </Form>
+                 
+                 
+                 
+                   
+                   
+                   
+                   
+                    {/* <form method="POST" encType="multipart/form-data" onSubmit={this.imageSubmit} onChange={this.validateForm}>
                     <div>
                                 <span>Name of the Item:</span>
                                 <input type="text" name="itemName" id="itemName"></input>
@@ -49,7 +65,7 @@ class UploadImage extends Component {
                             </div>
                                 <input id="description" type="text" placeholder="Give fellow Barterers some info on your item..." name="description"></input>
                         <Button secondary type="submit" className='btn'>Start Bartering with this item</Button>
-                    </form>
+                    </form> */}
                 </div>
             </React.Fragment>
         )

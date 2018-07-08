@@ -4,10 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { addUser } from '../actions/actions.js';
 import Register from './Register.jsx';
 import { Button, Form } from 'semantic-ui-react'
+import { format } from 'path';
 
 const initialState = {
     username: "",
-    password: ""
+    password: "",
+    loading: false,
 }
 
 
@@ -67,25 +69,35 @@ class Login extends Component {
 
     render() {
         return (
-            <Form>
-    <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
-    </Form.Field>
-    <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
-    </Form.Field>
-    <Form.Field>
-    </Form.Field>
-    <Button type='submit'>Submit</Button>
-  </Form>
+<React.Fragment>
+    <div id = "login-form-div">
+            <Form >
+                <Form.Field>
+                <label>Username:</label>
+                <input value={this.state.username} onChange={this.inputChange("username")} required placeholder='First Name' />
+                </Form.Field>
+                <Form.Field>
+                <label>Password</label>
+                <input type="password" value={this.state.password} onChange={this.inputChange("password")} required placeholder='Last Name' />
+                </Form.Field>
+                <Form.Field>
+                </Form.Field>
+                <Button onClick={this.fetchLogin} type='submit'>Sign In</Button>
+            </Form> 
+    </div>   
+            <div id = "register-form-div">
+                <Register />
+            </div>
+</React.Fragment>
+
+    
+    
 
 
 
 
 
-            // <React.Fragment>
+            /* // <React.Fragment>
             //     <div id="loginForm">
             //         <legend>Sign In:</legend>
             //         Username:<input className="log" value={this.state.username} onChange={this.inputChange("username")} required></input>
@@ -96,7 +108,7 @@ class Login extends Component {
             //     <br />
             //     <br />
             //     <Register />
-            // </React.Fragment>
+            // </React.Fragment> */
         )
     }
 }
