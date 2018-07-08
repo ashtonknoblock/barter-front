@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ModalModalExample from './SingleImage';
+import SingleImage from './SingleImage';
 
 
 
@@ -60,9 +60,9 @@ export default class Images extends Component {
         });
         return (
             <React.Fragment>
-                <div>
+                
                     {imgItems}
-                </div>
+                
             </React.Fragment>
         )
     }

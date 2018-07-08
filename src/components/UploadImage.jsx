@@ -37,12 +37,14 @@ class UploadImage extends Component {
             <React.Fragment>
                 <div>
                     <h1>Post an image of the item you want to start trading with</h1>
-                        <Form>
+                        <Form onSubmit={this.imageSubmit}>
                             <Form.Field>
                                 <input type="file" ref="file" accept="image/*" name="myFile" id="file"></input>
                                 <label>Image Title</label>
                                 <input type="text" name="itemName" id="itemName"></input>
                                 <input id="description" type="text" placeholder="Give fellow Barterers some info on your item..." name="description"></input>
+                                <Button secondary type="submit" className='btn'>Start Bartering with this item</Button>
+
                             </Form.Field>
 
                         </Form>
