@@ -8,13 +8,6 @@ import { connect } from 'react-redux'
 const SingleImage = (props) => {
 
 
-//   inputChange = field => evt =>{ 
-//     {        [field]: evt.target.value,
-//     }
-// }
-
-
-
  const postComment = (event) => {
     event.preventDefault();
     const comment = event.target.comment.value;
