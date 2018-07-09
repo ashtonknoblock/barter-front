@@ -26,7 +26,7 @@ class UploadImage extends Component {
 
         fetch("http://localhost:5000/upload", postRequestOptions)
             .then(res => console.log(res))       
-
+        document.getElementById("image-upload-form").reset()
     }
 
 
@@ -36,7 +36,7 @@ class UploadImage extends Component {
         return (
             <React.Fragment>
                 <div className="ui centered grid">
-                    <Form size="big" widths="equal" className="ui form" onSubmit={this.imageSubmit} method="POST" encType="multipart/form-data" ref="fform">
+                    <Form size="big" widths="equal" className="ui form" onSubmit={this.imageSubmit} method="POST" encType="multipart/form-data" id="image-upload-form">
                         <h2>Post an image of the item you want to start trading with</h2>
 
                         <Form.Group widths="16">
