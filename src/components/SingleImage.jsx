@@ -31,6 +31,7 @@ const SingleImage = (props) => {
     .then(data => {
       console.log(data)
     })
+    document.getElementById('comment-form').reset()
   }
   
   const itemComments = props.itemComments.map((comment, i) => {
@@ -61,7 +62,7 @@ const SingleImage = (props) => {
             </Comment.Group>
           </Modal.Description>
           </Modal.Content>
-          <Form onSubmit={postComment}>
+          <Form onSubmit={postComment} id="comment-form">
             <div>
               <h4>Comment on this item:</h4>
                   <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
