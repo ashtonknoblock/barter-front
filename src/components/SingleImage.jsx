@@ -7,9 +7,10 @@ import { connect } from 'react-redux'
 
 const SingleImage = (props) => {
 
+
  const postComment = (event) => {
     event.preventDefault();
-    console.log("taget", event.target);
+    const comment = event.target.comment.value;
 
     const formData = new FormData(event.target);
     const currentUser = props.username;
@@ -18,10 +19,17 @@ const SingleImage = (props) => {
     const postReqOptions = {
       method: "POST",
       mode: 'cors',
-      body: formData,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        currentUser: currentUser,
+        comment: comment,
+        itemID: props.itemID,
+      })
     }
 
-    fetch("http://172.31.89.174:5000/comment", postReqOptions)
+    fetch("http://localhost:5000/comment", postReqOptions)
     .then(data => console.log(data))
   }
 
@@ -39,9 +47,9 @@ const SingleImage = (props) => {
             <p>{props.description}</p>
           </Modal.Description>
           <Form onSubmit={postComment}>
-            <div data-item-id={props.itemID}>
+            <div>
               Comment on this item:
-                  <FormField width='fifteen' control="input" placeholder="comment if you are interested in this item"></FormField>
+                  <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
               <Button type="submit">Submit Comment</Button>
             </div>
           </Form>
