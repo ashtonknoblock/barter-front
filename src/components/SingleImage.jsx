@@ -1,18 +1,11 @@
 import React from 'react'
-import { Button, Header, Image, Modal, Form, FormField } from 'semantic-ui-react';
+import { Button, Header, Image, Modal, Form, FormField, Icon} from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
 
 const SingleImage = (props) => {
-
-
-//   inputChange = field => evt =>{ 
-//     {        [field]: evt.target.value,
-//     }
-// }
-
 
 
  const postComment = (event) => {
@@ -41,26 +34,58 @@ const SingleImage = (props) => {
   }
 
 
+
   return (
     <div className="modal">
       <img src={props.src} alt={props.src}></img>
       <p>{props.itemName}</p>
-      <Modal trigger={<Button primary>View this post</Button>}>
+      <Modal className="ui centered"trigger={<Button primary>View Item</Button>}>
         <Modal.Header>{props.itemName}</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src={props.src} />
           <Modal.Description>
-            <Header>Posted by {props.userName}</Header>
-            <p>{props.description}</p>
+            <Header>{props.userName} posted {props.itemName}
+              <p>{props.description}</p>
+            </Header>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+            <p id='User-comment'>example of a comment.</p>
+
           </Modal.Description>
+          </Modal.Content>
           <Form onSubmit={postComment}>
             <div>
               Comment on this item:
                   <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
-              <Button type="submit">Submit Comment</Button>
+              <Button secondary type="submit">Submit Comment</Button>
             </div>
           </Form>
-        </Modal.Content>
+        <Modal.Actions>
+          <Button primary >
+              <Icon name="right chevron"  />
+          </Button>
+        </Modal.Actions>
       </Modal>
     </div>
   )

@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { addUser } from '../actions/actions.js';
 import Register from './Register.jsx';
 import { Button, Form } from 'semantic-ui-react'
-import { format } from 'path';
 
 const initialState = {
     username: "",
@@ -24,7 +23,6 @@ class Login extends Component {
     }
 
     fetchLogin = (e) => { //triggered when submitting Login Info
-        // e.preventDefault();
 
         const postRequestOptions = {
             method: "POST",
@@ -69,29 +67,29 @@ class Login extends Component {
 
     render() {
         return (
-<React.Fragment>
-    <div id = "login-form-div">
-            <Form >
-                <Form.Field>
-                <label>Username:</label>
-                <input value={this.state.username} onChange={this.inputChange("username")} required placeholder='First Name' />
-                </Form.Field>
-                <Form.Field>
-                <label>Password</label>
-                <input type="password" value={this.state.password} onChange={this.inputChange("password")} required placeholder='Last Name' />
-                </Form.Field>
-                <Form.Field>
-                </Form.Field>
-                <Button onClick={this.fetchLogin} type='submit'>Sign In</Button>
-            </Form> 
-    </div>   
-            <div id = "register-form-div">
-                <Register />
-            </div>
-</React.Fragment>
+            <React.Fragment>
+                <div id="login-form-div">
+                    <Form className=" ui form" size="large">
+                        <Form.Field>
+                            <label>Username:</label>
+                            <input value={this.state.username} onChange={this.inputChange("username")} required placeholder='First Name' />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Password</label>
+                            <input type="password" value={this.state.password} onChange={this.inputChange("password")} required placeholder='Last Name' />
+                        </Form.Field>
+                        <Form.Field>
+                        </Form.Field>
+                        <Button secondary onClick={this.fetchLogin} type='submit'>Sign In</Button>
+                    </Form>
+                </div>
+                <div id="register-form-div">
+                    <Register />
+                </div>
+            </React.Fragment>
 
-    
-    
+
+
 
 
 
@@ -116,9 +114,9 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      username: state.username,
-      token: state.token
+        username: state.username,
+        token: state.token
     }
-  }
+}
 
 export default withRouter(connect(mapStateToProps)(Login))
