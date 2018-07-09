@@ -24,7 +24,7 @@ class UploadImage extends Component {
         }
 
 
-        fetch("http://localhost:5000/upload", postRequestOptions)
+        fetch("https://barter-mac.herokuapp.com/upload", postRequestOptions)
             .then(res => console.log(res))       
         document.getElementById("image-upload-form").reset()
     }
