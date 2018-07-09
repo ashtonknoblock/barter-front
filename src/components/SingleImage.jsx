@@ -78,14 +78,9 @@ const SingleImage = (props) => {
             <div>
               Comment on this item:
                   <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
-              <Button secondary type="submit">Submit Comment</Button>
+              <Button secondary type="submit">Submit Comment <Icon name="right chevron"  /></Button>
             </div>
           </Form>
-        <Modal.Actions>
-          <Button primary >
-              <Icon name="right chevron"  />
-          </Button>
-        </Modal.Actions>
       </Modal>
     </div>
   )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Message, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
+
 
 const initialState = {
   regUsername: "",
@@ -54,20 +56,35 @@ export default class Register extends Component {
   }
 
   render() {
+    const signInLink = <Button secondary><Link to="/login">Sign In</Link><Icon name="right chevron" /></Button>
     return (
+      <React.Fragment>
+        <div id="form-message-header">
+            <Message 
+      attached compact 
+      color="blue"
+      header='Welcome to Barter! Already have an account?'
+      content={signInLink}
+      size="big"
+    />
+      </div>
+   
+      <div id="register-form-div">
       <Form className=" ui form" size="large">
         <Form.Field>
           <label>Choose a username</label>
           <input value={this.state.regUsername} onChange={this.inputChange("regUsername")} required placeholder='Choose a username' />
         </Form.Field>
         <Form.Field>
-          <label>Password</label>
+          <label>Choose a Password</label>
           <input type="password" value={this.state.regPassword} onChange={this.inputChange("regPassword")} required placeholder='Choose a password' />
         </Form.Field>
         <Form.Field>
         </Form.Field>
         <Button secondary onClick={this.fetchRegister} type='submit'>Register</Button>
       </Form>
+      </div>
+      </React.Fragment>
     )
   }
 }

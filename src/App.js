@@ -6,7 +6,8 @@ import { keepUser } from './actions/actions.js';
 import Login from './components/Login.jsx';
 import Home from './components/Home.jsx'
 import { Route, Switch, Link } from 'react-router-dom';
-import { Button, List } from 'semantic-ui-react'
+import { Button, Image } from 'semantic-ui-react'
+import Register from './components/Register';
 
 
 
@@ -23,12 +24,15 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className="App">
+          <header className="App-header">
+            <Image centered size="small" src="/4b35826a-1a80-470d-89b5-fd1ea1b62e5e.png"/>
+         </header>
 
           <div id="nav">
             <ul id='nav'>
 
               <div id="LoginBtn">
-                <Button primary className="btn" type="submit"><Link to="/">Login</Link></Button >
+                <Button primary className="btn" type="submit"><Link to="/">Account</Link></Button >
               </div>
 
               <div id="HomeBtn">
@@ -47,12 +51,11 @@ class App extends Component {
           </div>
 
           <Switch>
-
-            <Route exact path="/" component={Login}/>
+            <Route exact path="/" component={Register}/>
+            <Route exact path="/login" component={Login}/>
             <Route exact path ="/home" component={Home}/>
-
           </Switch>
-        </div>
+          </div>
 
       </React.Fragment>
     );

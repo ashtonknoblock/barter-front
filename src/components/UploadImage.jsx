@@ -8,9 +8,12 @@ import { Button, Form, FormGroup, Label } from 'semantic-ui-react'
 
 class UploadImage extends Component {
 
+    state = {
+        value: "",
+    }
+
     imageSubmit = (event) => {
         event.preventDefault();
-
 
         const formData = new FormData(event.target);
         const currentUser = this.props.username;
@@ -25,19 +28,19 @@ class UploadImage extends Component {
 
 
         fetch("http://localhost:5000/upload", postRequestOptions)
-            .then(data => {
-                console.log(data);
-            })
-        this.refs.file.value = '';
+            .then(res => console.log(res))       
+
+           this.refs.value = ""
     }
 
-///!!!!!!!!**********$$$$$%%%%%@@@****  Should we put the upload image form in a modal? have it say,
-////                      $$$$%%%^^^@@  "have something you want to trade? *upload an image*" w a link to modal
+
+
+
     render() {
         return (
             <React.Fragment>
                 <div className="ui centered grid">
-                    <Form size="big" widths="equal" className="ui form" onSubmit={this.imageSubmit} method="POST" encType="multipart/form-data">
+                    <Form size="big" widths="equal" className="ui form" onSubmit={this.imageSubmit} method="POST" encType="multipart/form-data" ref="fform">
                         <h2>Post an image of the item you want to start trading with</h2>
 
                         <Form.Group widths="16">

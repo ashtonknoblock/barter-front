@@ -10,7 +10,7 @@ export default class Images extends Component {
     }
 
     fetchImages = () => {
-        fetch("https://barter-mac.herokuapp.com/images")
+        fetch("http://localhost:5000/images")
             .then(res => res.json())
             .then(images => {
                 let willBeState = [];
@@ -21,6 +21,8 @@ export default class Images extends Component {
 
                     for (let j = 0; j < imgItems.length; j++) {
                         imgObject.userName = images[i].userName;
+
+                        console.log(imgItems[j].comments)
 
                         let itemID = imgItems[j]._id;
                         let itemName = imgItems[j].itemName;
