@@ -11,10 +11,7 @@ const SingleImage = (props) => {
  const postComment = (event) => {
     event.preventDefault();
     const comment = event.target.comment.value;
-
-    const formData = new FormData(event.target);
-    const currentUser = props.username;
-    formData.append('user',currentUser)
+    const itemsUser = props.userName;
 
     const postReqOptions = {
       method: "POST",
@@ -23,9 +20,9 @@ const SingleImage = (props) => {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        currentUser: currentUser,
         comment: comment,
         itemID: props.itemID,
+        itemsUser: itemsUser
       })
     }
 
