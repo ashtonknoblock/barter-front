@@ -22,13 +22,13 @@ export default class Images extends Component {
                     for (let j = 0; j < imgItems.length; j++) {
                         imgObject.userName = images[i].userName;
 
-                        console.log(imgItems[j].comments)
-
                         let itemID = imgItems[j]._id;
                         let itemName = imgItems[j].itemName;
                         let imageUrl = imgItems[j].imageURL;
                         let imageDescription = imgItems[j].description;
+                        let itemComments = imgItems[j].comments;
 
+                        imgObject.itemComments = itemComments
                         imgObject.itemID = itemID;
                         imgObject.itemName = itemName;
                         imgObject.imageURL = imageUrl;
@@ -55,8 +55,8 @@ export default class Images extends Component {
 
     render() {
         const imgItems = this.state.imageData.map((image, i) => {
-            return (<SingleImage key={i.toString()} itemID={image.itemID} userName={image.userName} src={image.imageURL} description={image.imageDescription} />)
-        });
+            return (<SingleImage key={i.toString()} itemComments={image.itemComments} itemID={image.itemID} userName={image.userName} src={image.imageURL} description={image.imageDescription} />)
+    });
         return (
             <React.Fragment>
 

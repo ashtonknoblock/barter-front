@@ -176,3 +176,7 @@ input#description {
   text-shadow: none;
   background-image: none;
   }
+
+  .modal {
+    margin-bottom: 10vh;
+  }
