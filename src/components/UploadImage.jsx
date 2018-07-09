@@ -8,9 +8,6 @@ import { Button, Form, FormGroup, Label } from 'semantic-ui-react'
 
 class UploadImage extends Component {
 
-    state = {
-        value: "",
-    }
 
     imageSubmit = (event) => {
         event.preventDefault();
@@ -30,7 +27,6 @@ class UploadImage extends Component {
         fetch("http://localhost:5000/upload", postRequestOptions)
             .then(res => console.log(res))       
 
-           this.refs.value = ""
     }
 
 
