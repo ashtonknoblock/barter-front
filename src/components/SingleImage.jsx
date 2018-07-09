@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Header, Image, Modal, Form, FormField, Icon} from 'semantic-ui-react';
+import { Button, Header, Image, Modal, Form, FormField, Icon, Comment} from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import SingleComment from './SingleComment';
 
 
 
@@ -27,53 +28,42 @@ const SingleImage = (props) => {
     }
 
     fetch("http://localhost:5000/comment", postReqOptions)
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+    })
   }
+  
+  const itemComments = props.itemComments.map((comment, i) => {
+    console.log(comment)
+    return (<SingleComment key={i.toString()} comment={comment} />)
+  });
+
+
+  
 
 
 
   return (
+
     <div className="modal">
       <img src={props.src} alt={props.src}></img>
       <p>{props.itemName}</p>
       <Modal className="ui centered"trigger={<Button primary>View Item</Button>}>
         <Modal.Header>{props.itemName}</Modal.Header>
         <Modal.Content image>
-          <Image wrapped size='medium' src={props.src} />
+          <Image wrapped size='small' src={props.src} />
           <Modal.Description>
             <Header>{props.userName} posted {props.itemName}
               <p>{props.description}</p>
             </Header>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-            <p id='User-comment'>example of a comment.</p>
-
+            <Comment.Group size="massive">
+              {itemComments}
+            </Comment.Group>
           </Modal.Description>
           </Modal.Content>
           <Form onSubmit={postComment}>
             <div>
-              Comment on this item:
+              <h4>Comment on this item:</h4>
                   <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
               <Button secondary type="submit">Submit Comment <Icon name="right chevron"  /></Button>
             </div>
