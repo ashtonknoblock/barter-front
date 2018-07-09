@@ -21,7 +21,6 @@ export default class Images extends Component {
 
                     for (let j = 0; j < imgItems.length; j++) {
                         imgObject.userName = images[i].userName;
-                        console.log(imgItems[j]._id)
 
                         let itemID = imgItems[j]._id;
                         let itemName = imgItems[j].itemName;
@@ -39,7 +38,6 @@ export default class Images extends Component {
                         imgObject = {};
                     }
                 }
-                console.log(willBeState);
                 this.setState({
                     // imageData should be changed to itemData
                     imageData: willBeState
@@ -54,7 +52,6 @@ export default class Images extends Component {
 
 
     render() {
-        console.log(this.state.imageData);
         const imgItems = this.state.imageData.map((image, i) => {
             return (<SingleImage key={i.toString()} itemID={image.itemID} userName={image.userName} src={image.imageURL} description={image.imageDescription} />)
         });
