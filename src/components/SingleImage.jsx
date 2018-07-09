@@ -27,7 +27,7 @@ const SingleImage = (props) => {
       })
     }
 
-    fetch("http://localhost:5000/comment", postReqOptions)
+    fetch("https://barter-mac.herokuapp.com/comment", postReqOptions)
     .then(data => {
       console.log(data)
     })
@@ -35,7 +35,6 @@ const SingleImage = (props) => {
   }
   
   const itemComments = props.itemComments.map((comment, i) => {
-    console.log(comment)
     return (<SingleComment key={i.toString()} comment={comment} />)
   });
 
