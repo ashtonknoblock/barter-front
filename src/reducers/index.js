@@ -1,5 +1,6 @@
 import { ADD_USER } from '../actions/types';
-import { KEEP_USER } from '../actions/actions';
+import { KEEP_USER, LOGOUT } from '../actions/actions';
+
 
 const initialState = {
     token: "",
@@ -7,9 +8,9 @@ const initialState = {
     authenticated: false
 }
 
-const rootReducer = (state = initialState, action) =>  {
-    switch(action.type) {
-       
+const rootReducer = (state = initialState, action) => {
+    switch (action.type) {
+
         case ADD_USER:
             if (action.payload.data.success) {
                 let newState = state;
@@ -18,16 +19,16 @@ const rootReducer = (state = initialState, action) =>  {
                 newState.userName = action.payload.username;
                 newState.authenticated = true;
                 return newState;
-            } 
+            }
             break;
+
         case KEEP_USER:
             let newState = state;
-            console.log('person who stays logged in',typeof(action.payload));
             newState.userName = action.payload;
             newState.authenticated = true;
             return newState;
         default:
-            return initialState;   
+            return initialState;
     }
 }
 

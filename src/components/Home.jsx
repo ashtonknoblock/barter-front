@@ -10,7 +10,6 @@ class Home extends Component {
 
     render() {
         // If token is empty : Register need to sign in
-        const currentToken = this.props.token;
         const currentAuth = this.props.authenticated;
 
         return(

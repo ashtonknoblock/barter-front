@@ -6,8 +6,12 @@ import { keepUser } from './actions/actions.js';
 import Login from './components/Login.jsx';
 import Home from './components/Home.jsx'
 import { Route, Switch, Link } from 'react-router-dom';
+import { Button, List } from 'semantic-ui-react'
+
+
 
 class App extends Component {
+
 
   render() {
 
@@ -24,19 +28,19 @@ class App extends Component {
             <ul id='nav'>
 
               <div id="LoginBtn">
-                <button className="btn" type="submit"><Link to="/">Login</Link></button>
+                <Button primary className="btn" type="submit"><Link to="/">Login</Link></Button >
               </div>
 
               <div id="HomeBtn">
-                <button className="btn" type="submit"><Link to="/home">Home</Link></button>
+                <Button primary className="btn" type="submit"><Link to="/home">Home</Link></Button >
               </div>
 
               <div id="profileBtn">
-                <button className="btn" type="submit"><Link to="/profile">My Profile</Link></button>
+                <Button primary className="btn" type="submit"><Link to="/profile">My Profile</Link></Button >
               </div>
 
               <div id="logoutBtn">
-                <button className="btn" type="submit" onClick={this.fetchLogout}><Link to="/login">Log Out (stretch goal)</Link></button>
+                <Button primary className="btn" type="submit"><Link to="/">Log Out</Link></Button >
               </div>
 
             </ul>

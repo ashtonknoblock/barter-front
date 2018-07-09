@@ -57,9 +57,9 @@ export default class Images extends Component {
         });
         return (
             <React.Fragment>
-                
-                    {imgItems}
-                
+
+                {imgItems}
+
             </React.Fragment>
         )
     }
