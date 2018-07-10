@@ -45,7 +45,7 @@ const SingleImage = (props) => {
     <div className="modal">
       <img src={props.src} alt={props.src}></img>
       <p>{props.itemName}</p>
-      <Modal className="ui centered"trigger={<Button primary>View Item</Button>}>
+      <Modal size="large" className="ui centered"trigger={<Button primary>View Item</Button>}>
         <Modal.Header>{props.itemName}</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='small' src={props.src} />
@@ -53,7 +53,7 @@ const SingleImage = (props) => {
             <Header>{props.userName} posted {props.itemName}
               <p>{props.description}</p>
             </Header>
-            <Comment.Group size="massive">
+            <Comment.Group size="huge">
               {itemComments}
             </Comment.Group>
           </Modal.Description>
@@ -62,7 +62,7 @@ const SingleImage = (props) => {
             <div>
               <h4>Comment on this item:</h4>
                   <FormField width='fifteen' control="input" name="comment" placeholder="comment if you are interested in this item"></FormField>
-              <Button secondary type="submit">Submit Comment <Icon name="right chevron"  /></Button>
+              <Button primary type="submit">Submit Comment <Icon name="right chevron"  /></Button>
             </div>
           </Form>
       </Modal>
