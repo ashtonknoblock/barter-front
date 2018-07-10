@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addUser } from '../actions/actions.js';
-import Register from './Register.jsx';
 import { Button, Form } from 'semantic-ui-react'
 
 const initialState = {

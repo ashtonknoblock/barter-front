@@ -28,9 +28,6 @@ const SingleImage = (props) => {
     }
 
     fetch("https://barter-mac.herokuapp.com/comment", postReqOptions)
-    .then(data => {
-      console.log(data)
-    })
     document.getElementById('comment-form').reset()
   }
   

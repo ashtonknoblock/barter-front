@@ -1,6 +1,8 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
-
+  background-image: url('/bg');
+  background-size: cover;
+  background-position: center; 
 }
 
 .App {

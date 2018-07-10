@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, FormGroup, Label } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 
@@ -14,7 +14,6 @@ class UploadImage extends Component {
 
         const formData = new FormData(event.target);
         const currentUser = this.props.username;
-        console.log("currentUser = ", currentUser);
         formData.append('user', currentUser);
 
         const postRequestOptions = {
@@ -25,7 +24,6 @@ class UploadImage extends Component {
 
 
         fetch("https://barter-mac.herokuapp.com/upload", postRequestOptions)
-            .then(res => console.log(res))       
         document.getElementById("image-upload-form").reset()
     }
 

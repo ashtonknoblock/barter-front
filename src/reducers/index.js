@@ -1,5 +1,5 @@
 import { ADD_USER } from '../actions/types';
-import { KEEP_USER, LOGOUT } from '../actions/actions';
+import { KEEP_USER } from '../actions/actions';
 
 
 const initialState = {
@@ -14,7 +14,6 @@ const rootReducer = (state = initialState, action) => {
         case ADD_USER:
             if (action.payload.data.success) {
                 let newState = state;
-                console.log(newState)
                 newState.token = action.payload.data.token;
                 newState.userName = action.payload.username;
                 newState.authenticated = true;
