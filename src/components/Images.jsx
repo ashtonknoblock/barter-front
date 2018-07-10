@@ -48,8 +48,8 @@ export default class Images extends Component {
     }
     componentDidMount = () => {
         this.fetchImages();
-        const poll = setInterval(this.fetchImages, 5000);
-        poll;
+        const poll = setInterval(this.fetchImages, 2500);
+        return poll;
     }
 
 

@@ -40,7 +40,7 @@ class App extends Component {
               </div>
 
               <div id="profileBtn">
-                <Button primary className="btn" type="submit"><Link to="/profile">My Profile</Link></Button >
+                <Button primary className="btn" type="submit"><Link to="/">My Profile</Link></Button >
               </div>
 
               <div id="logoutBtn">
